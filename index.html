@@ -199,26 +199,38 @@ input[type=file]{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(300px,1fr));
+        repeat(3,1fr);
 
-    gap:20px;
+    gap:8px;
 }
 
 .photo-card{
 
     background:white;
 
-    border-radius:15px;
+    border-radius:0;
 
     overflow:hidden;
 
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.15);
+    box-shadow:none;
 }
 
 .photo-card img{
+
     width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
     display:block;
+
+    transition:.4s;
+}
+
+.photo-card:hover img{
+
+    transform:scale(1.03);
 }
 
 .card-body{
@@ -391,128 +403,219 @@ id="galleryGrid">
 
 <script>
 
-document
-.getElementById("themeToggle")
-.addEventListener("click",()=>{
 
-document.body.classList.toggle(
-"light-mode"
-);
+
+document.getElementById("themeToggle").addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+});
+
+const upload = document.getElementById("imageUpload");
+const editorContainer = document.getElementById("editorContainer");
+const gallery = document.getElementById("galleryGrid");
+const hero = document.querySelector(".hero");
+
+let heroImageSet = false;
+
+upload.addEventListener("change", (event) => {
+
+    [...event.target.files].forEach(file => {
+
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+
+            const imageSrc = e.target.result;
+
+            const editor = document.createElement("div");
+
+            editor.className = "editor-card";
+
+            editor.innerHTML = `
+                ${imageSrc}
+
+                <div class="controls">
+
+                    <label>Resize</label>
+                    <input type="range"
+                        class="size"
+                        min="200"
+                        max="1000"
+                        value="400">
+
+                    <label>Brightness</label>
+                    <input type="range"
+                        class="brightness"
+                        min="50"
+                        max="200"
+                        value="100">
+
+                    <label>Contrast</label>
+                    <input type="range"
+                        class="contrast"
+                        min="50"
+                        max="200"
+                        value="100">
+
+                    <label>Grayscale</label>
+                    <input type="range"
+                        class="gray"
+                        min="0"
+                        max="100"
+                        value="0">
+
+                    <textarea
+                        class="caption"
+                        placeholder="Add comments">
+                    </textarea>
+
+                    <button class="publish-btn">
+                        Publish
+                    </button>
+
+                </div>
+            `;
+
+            editorContainer.appendChild(editor);
+
+            const preview =
+                editor.querySelector(".preview");
+
+            const size =
+                editor.querySelector(".size");
+
+            const brightness =
+                editor.querySelector(".brightness");
+
+            const contrast =
+                editor.querySelector(".contrast");
+
+            const gray =
+                editor.querySelector(".gray");
+
+            function updatePreview() {
+
+                preview.style.width =
+                    size.value + "px";
+
+                preview.style.filter =
+                    `brightness(${brightness.value}%)
+                     contrast(${contrast.value}%)
+                     grayscale(${gray.value}%)`;
+            }
+
+            updatePreview();
+
+            size.addEventListener(
+                "input",
+                updatePreview
+            );
+
+            brightness.addEventListener(
+                "input",
+                updatePreview
+            );
+
+            contrast.addEventListener(
+                "input",
+                updatePreview
+            );
+
+            gray.addEventListener(
+                "input",
+                updatePreview
+            );
+
+            editor.querySelector(".publish-btn")
+                .addEventListener("click", () => {
+
+                    const caption =
+                        editor.querySelector(
+                            ".caption"
+                        ).value;
+
+                    /* First publish becomes Hero image */
+
+                    if (!heroImageSet) {
+
+                        hero.style.background = `
+                        linear-gradient(
+                        rgba(0,0,0,.45),
+                        rgba(0,0,0,.45)),
+                        url(${imageSrc})
+                        `;
+
+                        hero.style.backgroundSize =
+                            "cover";
+
+                        hero.style.backgroundPosition =
+                            "center";
+
+                        heroImageSet = true;
+                    }
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "photo-card";
+
+                    card.innerHTML = `
+                        ${imageSrc}
+
+                        <div class="card-body">
+
+                            <div class="card-desc">
+                                ${caption}
+                            </div>
+
+                        </div>
+                    `;
+
+                    gallery.appendChild(card);
+
+                    const galleryImage =
+                        card.querySelector("img");
+
+                    galleryImage.addEventListener(
+                        "click",
+                        () => {
+
+                            document
+                                .getElementById(
+                                    "modal"
+                                )
+                                .classList.add(
+                                    "active"
+                                );
+
+                            document
+                                .getElementById(
+                                    "modalImg"
+                                )
+                                .src =
+                                galleryImage.src;
+                        }
+                    );
+
+                });
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
 
 });
 
-const upload=
-document.getElementById("imageUpload");
+document.getElementById("modal")
+.addEventListener("click", () => {
 
-const editorContainer=
-document.getElementById("editorContainer");
-
-const gallery=
-document.getElementById("galleryGrid");
-
-upload.addEventListener("change",(event)=>{
-
-[...event.target.files].forEach(file=>{
-
-const reader=
-new FileReader();
-
-reader.onload=(e)=>{
-
-const imageSrc=e.target.result;
-
-const editor=
-document.createElement("div");
-
-editor.className="editor-card";
-
-editor.innerHTML=`
-
-${imageSrc}
-
-<div class="controls">
-
-<label>Resize</label>
-<input type="range" class="size" min="150" max="800" value="400">
-
-<label>Brightness</label>
-<input type="range" class="brightness" min="50" max="200" value="100">
-
-<label>Contrast</label>
-<input type="range" class="contrast" min="50" max="200" value="100">
-
-<label>Grayscale</label>
-<input type="range" class="gray" min="0" max="100" value="0">
-
-<textarea class="caption" placeholder="Add comments"></textarea>
-
-<button class="publish-btn">
-Publish
-</button>
-
-</div>
-`;
-
-editorContainer.appendChild(editor);
-
-editor.querySelector(".publish-btn")
-.onclick=()=>{
-
-const caption=
-editor.querySelector(".caption").value;
-
-const card=
-document.createElement("div");
-
-card.className="photo-card";
-
-card.innerHTML=`
-
-${imageSrc}
-
-<div class="card-body">
-
-<div class="card-desc">
-${caption}
-</div>
-
-</div>
-`;
-
-gallery.appendChild(card);
-
-card.querySelector("img")
-.addEventListener("click",()=>{
-
-document
-.getElementById("modal")
-.classList.add("active");
-
-document
-.getElementById("modalImg")
-.src=imageSrc;
+    document
+        .getElementById("modal")
+        .classList.remove("active");
 
 });
 
-};
-
-};
-
-reader.readAsDataURL(file);
-
-});
-
-});
-
-document
-.getElementById("modal")
-.addEventListener("click",()=>{
-
-document
-.getElementById("modal")
-.classList.remove("active");
-
-});
 
 </script>
 
