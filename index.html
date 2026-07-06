@@ -3,10 +3,11 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GLAM UP Portfolio</title>
+<title>GLAM ME</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap
 
 <style>
 
@@ -21,257 +22,138 @@ html{
 }
 
 body{
-
     font-family:'Oswald',sans-serif;
-
-    background:
-    linear-gradient(
-        135deg,
-        #0f172a,
-        #111827,
-        #1e293b
-    );
-
+    background:#000;
     color:white;
 }
 
-/* =====================
-NAVBAR
-===================== */
+/* ---------------------- */
+/* NAVIGATION */
+/* ---------------------- */
 
 nav{
-
-    position:fixed;
-
+    position:absolute;
     top:0;
-    width:100%;
+    left:0;
+    right:0;
 
-    padding:25px 8%;
+    padding:35px 60px;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     z-index:1000;
-
-    background:rgba(0,0,0,.3);
-
-    backdrop-filter:blur(15px);
 }
 
-.logo{
-
-    font-size:32px;
-    letter-spacing:4px;
-    font-weight:700;
-}
-
-nav ul{
-
+.nav-left,
+.nav-right{
     display:flex;
-
     gap:40px;
-
-    list-style:none;
 }
 
 nav a{
-
     color:white;
-
     text-decoration:none;
-
     font-size:18px;
+    letter-spacing:2px;
+    font-weight:500;
 }
 
-/* =====================
-HERO
-===================== */
+.logo{
+    font-size:72px;
+    letter-spacing:6px;
+    font-weight:700;
+}
+
+/* ---------------------- */
+/* HERO */
+/* ---------------------- */
 
 .hero{
-
     height:100vh;
 
     background:
     linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.45)
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.25)
     ),
     url("hero.jpg");
 
     background-size:cover;
-    background-position:center;
+    background-position:center center;
 
-    display:flex;
+    position:relative;
+}
 
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
+.hero-content{
+    position:absolute;
+    left:120px;
+    bottom:140px;
 }
 
 .hero-content h1{
-
-    font-size:7rem;
-    letter-spacing:10px;
+    font-size:90px;
+    font-weight:700;
+    margin-bottom:25px;
+    text-transform:uppercase;
 }
 
-.hero-content p{
-
-    margin-top:20px;
-
-    font-size:1.4rem;
-
-    color:#d1d5db;
-}
-
-.btn{
-
+.listen-btn{
     display:inline-block;
 
-    margin-top:30px;
+    padding:18px 50px;
 
-    padding:16px 40px;
-
-    border:2px solid white;
-
+    border:2px solid #fff;
     border-radius:50px;
 
-    text-decoration:none;
-
     color:white;
+    text-decoration:none;
+    font-size:20px;
 
     transition:.3s;
 }
 
-.btn:hover{
-
+.listen-btn:hover{
     background:white;
     color:black;
 }
 
-/* =====================
-ABOUT
-===================== */
+/* ---------------------- */
+/* ABOUT */
+/* ---------------------- */
 
 .about{
-
     padding:120px 10%;
-
-    background:#050505;
+    background:#111;
 }
 
 .section-title{
-
     text-align:center;
-
-    font-size:55px;
-
+    font-size:70px;
     margin-bottom:60px;
+    letter-spacing:5px;
 }
 
-.about-grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:50px;
-}
-
-.about-card{
-
-    background:
-    rgba(255,255,255,.05);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:25px;
-
-    padding:40px;
-
+.about-content{
+    max-width:900px;
+    margin:auto;
     text-align:center;
-
-    border:
-    1px solid rgba(255,255,255,.12);
 }
 
-/* =====================
-FEATURE
-===================== */
-
-.feature{
-
-    height:80vh;
-
-    background:
-    linear-gradient(
-        rgba(0,0,0,.35),
-        rgba(0,0,0,.35)
-    ),
-    url("feature.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-
-    align-items:center;
+.about-content p{
+    font-size:24px;
+    line-height:2;
+    color:#cccccc;
 }
 
-.feature-content{
-
-    margin-left:8%;
-}
-
-.feature-content h2{
-
-    background:#bffcff;
-
-    color:black;
-
-    display:inline-block;
-
-    padding:15px 30px;
-
-    font-size:4rem;
-}
-
-.feature-content button{
-
-    margin-top:30px;
-
-    padding:15px 40px;
-
-    border-radius:50px;
-
-    border:1px solid white;
-
-    background:none;
-
-    color:white;
-
-    cursor:pointer;
-}
-
-/* =====================
-GALLERY
-===================== */
+/* ---------------------- */
+/* GALLERY */
+/* ---------------------- */
 
 .gallery{
-
-    padding:120px 8%;
-}
-
-.gallery-title{
-
-    text-align:center;
-
-    font-size:55px;
-
-    margin-bottom:80px;
+    background:#f1f1f1;
+    padding:80px;
 }
 
 .gallery-grid{
@@ -279,75 +161,74 @@ GALLERY
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
+    repeat(3,1fr);
 
-    gap:30px;
+    gap:8px;
 }
 
-.photo-card{
-
-    background:
-    rgba(255,255,255,.08);
-
-    backdrop-filter:blur(16px);
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    border:
-    1px solid rgba(255,255,255,.12);
-
-    transition:.4s ease;
-}
-
-.photo-card:hover{
-
-    transform:
-    translateY(-10px);
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.6);
-}
-
-.photo-card img{
+.gallery-grid img{
 
     width:100%;
-
-    height:350px;
+    height:320px;
 
     object-fit:cover;
 
-    transition:.5s;
+    filter:grayscale(100%);
+
+    transition:.4s;
+
+    cursor:pointer;
 }
 
-.photo-card:hover img{
+.gallery-grid img:hover{
 
-    transform:scale(1.08);
+    filter:grayscale(0);
+
+    transform:scale(1.02);
 }
 
-.card-body{
+/* ---------------------- */
+/* SOCIAL */
+/* ---------------------- */
 
-    padding:20px;
+.social{
+    background:black;
+    text-align:center;
+    padding:120px 0;
 }
 
-.card-title{
-
-    font-size:24px;
-
-    margin-bottom:12px;
+.social h2{
+    font-size:60px;
+    margin-bottom:40px;
+    letter-spacing:6px;
 }
 
-.card-desc{
-
-    color:#cbd5e1;
-
-    line-height:1.7;
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:40px;
 }
 
-/* =====================
-MODAL
-===================== */
+.social-links a{
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+}
+
+/* ---------------------- */
+/* FOOTER */
+/* ---------------------- */
+
+footer{
+    background:#050505;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+/* ---------------------- */
+/* MODAL */
+/* ---------------------- */
 
 .modal{
 
@@ -359,78 +240,94 @@ MODAL
     width:100%;
     height:100%;
 
+    background:
+    rgba(0,0,0,.95);
+
     display:none;
 
     justify-content:center;
     align-items:center;
 
-    background:
-    rgba(0,0,0,.9);
-
     z-index:9999;
 }
 
 .modal.active{
-
     display:flex;
 }
 
 .modal img{
-
     max-width:90%;
     max-height:90%;
 }
 
-/* =====================
-FOOTER
-===================== */
+/* ---------------------- */
+/* RESPONSIVE */
+/* ---------------------- */
 
-footer{
+@media(max-width:900px){
 
-    text-align:center;
+    .logo{
+        font-size:40px;
+    }
 
-    padding:40px;
+    .hero-content{
+        left:40px;
+    }
 
-    background:black;
+    .hero-content h1{
+        font-size:50px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
-<nav>
-
-<div class="logo">
-GLAM UP
-</div>
-
-<ul>
-<li>#aboutABOUT</a></li>
-<li>#galleryGALLERY</a></li>
-<li>contact">CONTACT</a></li>
-</ul>
-
-</nav>
+<!-- HERO -->
 
 <section class="hero">
 
+<nav>
+
+<div class="nav-left">
+">HOME</a>
+#about
+</div>
+
+<div class="logo">
+GLAM ME
+</div>
+
+<div class="nav-right">
+#
+#TOUR</a>
+</div>
+
+</nav>
+
 <div class="hero-content">
 
-<h1>GLAM UP</h1>
-
-<p>
-Create Beautiful Visual Stories
-</p>
+<h1>NEW ALBUM OUT</h1>
 
 #gallery
-VIEW GALLERY
+LISTEN NOW
 </a>
 
 </div>
 
 </section>
+
+<!-- ABOUT -->
 
 <section class="about" id="about">
 
@@ -438,121 +335,62 @@ VIEW GALLERY
 ABOUT
 </h2>
 
-<div class="about-grid">
-
-<div class="about-card">
-
-<h3>Portfolio Journey</h3>
+<div class="about-content">
 
 <p>
-Showcase your photographs through a modern visual storytelling experience.
+GLAM ME is a creative photography and visual storytelling portfolio.
+Showcase cinematic imagery, music-inspired visuals, artistic projects,
+and immersive gallery experiences through a bold monochrome style.
 </p>
-
-</div>
-
-<div class="about-card">
-
-<h3>Creative Vision</h3>
-
-<p>
-Build immersive galleries that transform photographs into memorable experiences.
-</p>
-
-</div>
 
 </div>
 
 </section>
 
-<section class="feature">
-
-<div class="feature-content">
-
-<h2>
-PHOTO STORIES
-</h2>
-
-<br>
-
-<button>
-EXPLORE
-</button>
-
-</div>
-
-</section>
+<!-- GALLERY -->
 
 <section class="gallery" id="gallery">
 
-<h2 class="gallery-title">
-PHOTO GALLERY
-</h2>
-
 <div class="gallery-grid">
 
-<div class="photo-card">
-
-photo1.jpg">
-
-<div class="card-body">
-
-<div class="card-title">
-Portrait Collection
-</div>
-
-<div class="card-desc">
-Professional portrait showcase and storytelling.
-</div>
-
-</div>
-
-</div>
-
-<div class="photo-card">
-
-<img src="photo2.jpg">
-
-<div class="card-body">
-
-<div class="card-title">
-Street Photography
-</div>
-
-<div class="card-desc">
-Moments captured from life and movement.
-</div>
-
-</div>
-
-</div>
-
-<div class="photo-card">
-
-<img src="photo3.jpg">
-
-<div class="card-body">
-
-<div class="card-title">
-Landscape Series
-</div>
-
-<div class="card-desc">
-Nature inspired visual compositions.
-</div>
-
-</div>
-
-</div>
+1.jpg" alt="">
+<img src="photo2.jpg" alt="">
+" alt="">
+<img src="photo4.jpg" alt="">
+photo5.jpg" alt="">
+photo6.jpg">
 
 </div>
 
 </section>
 
-<footer id="contact">
+<!-- SOCIAL -->
 
-© 2026 GLAM UP Portfolio
+<section class="social">
+
+<h2>
+SOCIAL
+</h2>
+
+<div class="social-links">
+
+#
+#YOUTUBE</a>
+#
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 GLAM ME Portfolio
 
 </footer>
+
+<!-- IMAGE MODAL -->
 
 <div class="modal" id="modal">
 <img id="modalImg">
@@ -560,33 +398,29 @@ Nature inspired visual compositions.
 
 <script>
 
-const cards =
-document.querySelectorAll(".photo-card img");
+const images =
+document.querySelectorAll('.gallery-grid img');
 
 const modal =
-document.getElementById("modal");
+document.getElementById('modal');
 
 const modalImg =
-document.getElementById("modalImg");
+document.getElementById('modalImg');
 
-cards.forEach(img=>{
+images.forEach(img=>{
 
-    img.addEventListener("click",()=>{
+    img.addEventListener('click',()=>{
 
-        modal.classList.add("active");
+        modal.classList.add('active');
 
         modalImg.src = img.src;
-
-        document.body.style.background =
-            `url(${img.src}) center center / cover fixed`;
-
     });
 
 });
 
-modal.addEventListener("click",()=>{
+modal.addEventListener('click',()=>{
 
-    modal.classList.remove("active");
+    modal.classList.remove('active');
 
 });
 
