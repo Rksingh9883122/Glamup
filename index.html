@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
 
-<title>Portfolio Gallery</title>
+<title>GLAM UP Portfolio</title>
 
-https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap
 
 <style>
 
@@ -15,164 +16,238 @@ https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap
     box-sizing:border-box;
 }
 
-body{
-    background:#111;
-    color:white;
-    font-family:'Oswald',sans-serif;
+html{
+    scroll-behavior:smooth;
 }
 
-/* =========================
-    HERO SECTION
-========================= */
+body{
 
-.hero{
-    height:100vh;
+    font-family:'Oswald',sans-serif;
 
-    background:url("hero.jpg") center center/cover no-repeat;
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #111827,
+        #1e293b
+    );
+
+    color:white;
+}
+
+/* =====================
+NAVBAR
+===================== */
+
+nav{
+
+    position:fixed;
+
+    top:0;
+    width:100%;
+
+    padding:25px 8%;
 
     display:flex;
+
+    justify-content:space-between;
+
     align-items:center;
-    justify-content:center;
 
-    position:relative;
+    z-index:1000;
+
+    background:rgba(0,0,0,.3);
+
+    backdrop-filter:blur(15px);
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
+.logo{
 
-    background:rgba(0,0,0,.45);
+    font-size:32px;
+    letter-spacing:4px;
+    font-weight:700;
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
+nav ul{
 
-    text-align:center;
+    display:flex;
+
+    gap:40px;
+
+    list-style:none;
 }
 
-.hero-content h1{
-    font-size:90px;
-    letter-spacing:6px;
-}
-
-.hero-content p{
-    margin-top:15px;
-    font-size:22px;
-    color:#ddd;
-}
-
-.btn{
-    margin-top:30px;
-
-    display:inline-block;
-
-    padding:15px 40px;
-
-    border:2px solid white;
+nav a{
 
     color:white;
 
     text-decoration:none;
 
+    font-size:18px;
+}
+
+/* =====================
+HERO
+===================== */
+
+.hero{
+
+    height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
+    ),
+    url("hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.hero-content h1{
+
+    font-size:7rem;
+    letter-spacing:10px;
+}
+
+.hero-content p{
+
+    margin-top:20px;
+
+    font-size:1.4rem;
+
+    color:#d1d5db;
+}
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:16px 40px;
+
+    border:2px solid white;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:white;
+
     transition:.3s;
 }
 
 .btn:hover{
+
     background:white;
     color:black;
 }
 
-
-/* =========================
-    ABOUT
-========================= */
+/* =====================
+ABOUT
+===================== */
 
 .about{
-    background:black;
-    padding:100px 10%;
+
+    padding:120px 10%;
+
+    background:#050505;
 }
 
 .section-title{
+
     text-align:center;
-    font-size:50px;
 
-    margin-bottom:50px;
+    font-size:55px;
 
-    letter-spacing:4px;
+    margin-bottom:60px;
 }
 
 .about-grid{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:50px;
 }
 
 .about-card{
+
+    background:
+    rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    padding:40px;
+
     text-align:center;
+
+    border:
+    1px solid rgba(255,255,255,.12);
 }
 
-.about-card h3{
-    font-size:32px;
-    margin-bottom:20px;
-}
-
-.about-card p{
-    color:#ddd;
-    line-height:1.8;
-}
-
-/* =========================
-    FEATURE
-========================= */
+/* =====================
+FEATURE
+===================== */
 
 .feature{
-    height:90vh;
 
-    background:url("feature.jpg") center center/cover;
+    height:80vh;
 
-    position:relative;
-}
+    background:
+    linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.35)
+    ),
+    url("feature.jpg");
 
-.feature::before{
-    content:"";
+    background-size:cover;
+    background-position:center;
 
-    position:absolute;
-    inset:0;
+    display:flex;
 
-    background:rgba(0,0,0,.45);
+    align-items:center;
 }
 
 .feature-content{
-    position:absolute;
 
-    left:8%;
-    bottom:15%;
-
-    z-index:2;
+    margin-left:8%;
 }
 
 .feature-content h2{
-    font-size:80px;
+
     background:#bffcff;
+
     color:black;
 
     display:inline-block;
 
-    padding:10px 20px;
+    padding:15px 30px;
+
+    font-size:4rem;
 }
 
 .feature-content button{
-    display:block;
 
-    margin-top:20px;
+    margin-top:30px;
 
     padding:15px 40px;
 
     border-radius:50px;
 
-    border:2px solid white;
+    border:1px solid white;
 
     background:none;
 
@@ -181,60 +256,101 @@ body{
     cursor:pointer;
 }
 
-/* =========================
-    GALLERY
-========================= */
+/* =====================
+GALLERY
+===================== */
 
 .gallery{
-    background:#f4f4f4;
-
-    color:black;
 
     padding:120px 8%;
 }
 
 .gallery-title{
+
     text-align:center;
 
-    font-size:50px;
+    font-size:55px;
 
-    margin-bottom:70px;
+    margin-bottom:80px;
 }
 
 .gallery-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
+    repeat(auto-fit,minmax(320px,1fr));
 
-    gap:20px;
+    gap:30px;
 }
 
-.gallery-card{
+.photo-card{
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+    border-radius:25px;
+
     overflow:hidden;
-    cursor:pointer;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    transition:.4s ease;
 }
 
-.gallery-card img{
+.photo-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.6);
+}
+
+.photo-card img{
+
     width:100%;
-    display:block;
+
+    height:350px;
+
+    object-fit:cover;
 
     transition:.5s;
 }
 
-.gallery-card:hover img{
+.photo-card:hover img{
+
     transform:scale(1.08);
 }
 
-.gallery-card h3{
-    margin-top:15px;
+.card-body{
+
+    padding:20px;
 }
 
-/* =========================
-    FULL SCREEN MODAL
-========================= */
+.card-title{
+
+    font-size:24px;
+
+    margin-bottom:12px;
+}
+
+.card-desc{
+
+    color:#cbd5e1;
+
+    line-height:1.7;
+}
+
+/* =====================
+MODAL
+===================== */
 
 .modal{
+
     position:fixed;
 
     top:0;
@@ -243,163 +359,209 @@ body{
     width:100%;
     height:100%;
 
-    background:rgba(0,0,0,.95);
-
     display:none;
 
     justify-content:center;
     align-items:center;
 
-    z-index:999;
+    background:
+    rgba(0,0,0,.9);
+
+    z-index:9999;
+}
+
+.modal.active{
+
+    display:flex;
 }
 
 .modal img{
+
     max-width:90%;
     max-height:90%;
 }
 
-.modal.active{
-    display:flex;
-}
-
-/* =========================
-    FOOTER
-========================= */
+/* =====================
+FOOTER
+===================== */
 
 footer{
-    background:black;
-    color:white;
 
     text-align:center;
 
     padding:40px;
+
+    background:black;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- HERO -->
+<nav>
+
+<div class="logo">
+GLAM UP
+</div>
+
+<ul>
+<li>#aboutABOUT</a></li>
+<li>#galleryGALLERY</a></li>
+<li>contact">CONTACT</a></li>
+</ul>
+
+</nav>
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <h1>GLAM ME</h1>
+<h1>GLAM UP</h1>
 
-        <p>Create Beautiful Visual Stories</p>
+<p>
+Create Beautiful Visual Stories
+</p>
 
-        #
-            VIEW GALLERY
-        </a>
+#gallery
+VIEW GALLERY
+</a>
 
-    </div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section class="about">
-
-    <h2 class="section-title">
-        ABOUT
-    </h2>
-
-    <div class="about-grid">
-
-        <div class="about-card">
-            <h3>Portfolio Journey</h3>
-
-            <p>
-                Showcase your photographs
-                through a clean and modern
-                visual storytelling experience.
-            </p>
-        </div>
-
-        <div class="about-card">
-            <h3>Creative Vision</h3>
-
-            <p>
-                Build immersive galleries that
-                transform photographs into
-                memorable experiences.
-            </p>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-<!-- FEATURE IMAGE -->
+<section class="about" id="about">
+
+<h2 class="section-title">
+ABOUT
+</h2>
+
+<div class="about-grid">
+
+<div class="about-card">
+
+<h3>Portfolio Journey</h3>
+
+<p>
+Showcase your photographs through a modern visual storytelling experience.
+</p>
+
+</div>
+
+<div class="about-card">
+
+<h3>Creative Vision</h3>
+
+<p>
+Build immersive galleries that transform photographs into memorable experiences.
+</p>
+
+</div>
+
+</div>
+
+</section>
 
 <section class="feature">
 
-    <div class="feature-content">
+<div class="feature-content">
 
-        <h2>
-            PHOTO STORIES
-        </h2>
+<h2>
+PHOTO STORIES
+</h2>
 
-        <button>
-            EXPLORE
-        </button>
+<br>
 
-    </div>
+<button>
+EXPLORE
+</button>
 
-</section>
-
-<!-- GALLERY -->
-
-<section class="gallery">
-
-    <h2 class="gallery-title">
-        PHOTO GALLERY
-    </h2>
-
-    <div class="gallery-grid">
-
-        <div class="gallery-card">
-            photo1.jpg
-            <h3>Portrait Collection</h3>
-        </div>
-
-        <div class="gallery-card">
-            photo2.jpg
-            <h3>Street Photography</h3>
-        </div>
-
-        <div class="gallery-card">
-            photo3.jpg
-            <h3>Landscape Series</h3>
-        </div>
-
-        <div class="gallery-card">
-            photo4.jpg
-            <h3>Creative Frames</h3>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-<footer>
+<section class="gallery" id="gallery">
 
-    © 2026 Portfolio Gallery
+<h2 class="gallery-title">
+PHOTO GALLERY
+</h2>
+
+<div class="gallery-grid">
+
+<div class="photo-card">
+
+photo1.jpg">
+
+<div class="card-body">
+
+<div class="card-title">
+Portrait Collection
+</div>
+
+<div class="card-desc">
+Professional portrait showcase and storytelling.
+</div>
+
+</div>
+
+</div>
+
+<div class="photo-card">
+
+<img src="photo2.jpg">
+
+<div class="card-body">
+
+<div class="card-title">
+Street Photography
+</div>
+
+<div class="card-desc">
+Moments captured from life and movement.
+</div>
+
+</div>
+
+</div>
+
+<div class="photo-card">
+
+<img src="photo3.jpg">
+
+<div class="card-body">
+
+<div class="card-title">
+Landscape Series
+</div>
+
+<div class="card-desc">
+Nature inspired visual compositions.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+© 2026 GLAM UP Portfolio
 
 </footer>
 
 <div class="modal" id="modal">
-
-    <img id="modalImg">
-
+<img id="modalImg">
 </div>
 
 <script>
 
-const galleryImages =
-document.querySelectorAll(".gallery-card img");
+const cards =
+document.querySelectorAll(".photo-card img");
 
 const modal =
 document.getElementById("modal");
@@ -407,7 +569,7 @@ document.getElementById("modal");
 const modalImg =
 document.getElementById("modalImg");
 
-galleryImages.forEach(img=>{
+cards.forEach(img=>{
 
     img.addEventListener("click",()=>{
 
@@ -415,11 +577,9 @@ galleryImages.forEach(img=>{
 
         modalImg.src = img.src;
 
-        document.body.style.backgroundImage =
-            `url(${img.src})`;
+        document.body.style.background =
+            `url(${img.src}) center center / cover fixed`;
 
-        document.body.style.backgroundSize =
-            "cover";
     });
 
 });
@@ -433,4 +593,4 @@ modal.addEventListener("click",()=>{
 </script>
 
 </body>
-</html>"<!-- Redeploy -->" 
+</html>
