@@ -559,17 +559,17 @@ upload.addEventListener("change", (event) => {
                     card.className =
                         "photo-card";
 
-                    card.innerHTML = `
-                        ${imageSrc}
+card.innerHTML = `
 
-                        <div class="card-body">
+<img src="${imageSrc}" alt="${caption}">
+<div class="card-body">
 
-                            <div class="card-desc">
-                                ${caption}
-                            </div>
+<div class="card-desc">
+${caption}
+</div>
 
-                        </div>
-                    `;
+</div>
+`;
 
                     gallery.appendChild(card);
 
