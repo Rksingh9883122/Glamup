@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GLAM ME</title>
+<title>GLAM ME Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap
+<link href="https://fonts.0&display=swap" rel="stylesheet">
 
 <style>
 
@@ -25,135 +25,213 @@ body{
     font-family:'Oswald',sans-serif;
     background:#000;
     color:white;
+    transition:.3s;
 }
 
-/* ---------------------- */
-/* NAVIGATION */
-/* ---------------------- */
+body.light-mode{
+    background:#f5f5f5;
+    color:#111;
+}
+
+body.light-mode .about,
+body.light-mode .social{
+    background:#ffffff;
+    color:#111;
+}
+
+body.light-mode nav{
+    background:rgba(255,255,255,.9);
+}
+
+body.light-mode nav a{
+    color:#111;
+}
 
 nav{
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
 
-    padding:35px 60px;
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:25px 60px;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
+    background:rgba(0,0,0,.6);
+
+    backdrop-filter:blur(15px);
+
     z-index:1000;
 }
 
-.nav-left,
-.nav-right{
-    display:flex;
-    gap:40px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-size:18px;
-    letter-spacing:2px;
-    font-weight:500;
-}
-
 .logo{
-    font-size:72px;
-    letter-spacing:6px;
+    font-size:40px;
+    letter-spacing:5px;
     font-weight:700;
 }
 
-/* ---------------------- */
-/* HERO */
-/* ---------------------- */
+.menu{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+}
+
+#themeToggle{
+    padding:10px 15px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+}
 
 .hero{
+
     height:100vh;
 
     background:
     linear-gradient(
-        rgba(0,0,0,.25),
-        rgba(0,0,0,.25)
+    rgba(0,0,0,.4),
+    rgba(0,0,0,.4)
     ),
     url("hero.jpg");
 
     background-size:cover;
-    background-position:center center;
+    background-position:center;
 
-    position:relative;
-}
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-.hero-content{
-    position:absolute;
-    left:120px;
-    bottom:140px;
+    text-align:center;
 }
 
 .hero-content h1{
+
     font-size:90px;
-    font-weight:700;
-    margin-bottom:25px;
-    text-transform:uppercase;
+    letter-spacing:8px;
 }
 
-.listen-btn{
+.hero-content p{
+
+    margin-top:20px;
+    font-size:24px;
+}
+
+.hero-btn{
+    margin-top:30px;
+
     display:inline-block;
 
     padding:18px 50px;
 
-    border:2px solid #fff;
+    border:2px solid white;
     border-radius:50px;
 
-    color:white;
     text-decoration:none;
-    font-size:20px;
-
-    transition:.3s;
+    color:white;
 }
-
-.listen-btn:hover{
-    background:white;
-    color:black;
-}
-
-/* ---------------------- */
-/* ABOUT */
-/* ---------------------- */
 
 .about{
-    padding:120px 10%;
+
+    padding:100px 10%;
     background:#111;
 }
 
 .section-title{
+
     text-align:center;
-    font-size:70px;
-    margin-bottom:60px;
-    letter-spacing:5px;
+    margin-bottom:50px;
+    font-size:60px;
 }
 
 .about-content{
+
+    text-align:center;
     max-width:900px;
     margin:auto;
-    text-align:center;
 }
 
 .about-content p{
-    font-size:24px;
-    line-height:2;
-    color:#cccccc;
+
+    font-size:22px;
+    line-height:1.8;
 }
 
-/* ---------------------- */
-/* GALLERY */
-/* ---------------------- */
+.upload-section{
+
+    padding:80px;
+    background:#151515;
+}
+
+.upload-section h2{
+
+    font-size:50px;
+    margin-bottom:25px;
+}
+
+.editor-card{
+
+    background:#202020;
+    padding:20px;
+    border-radius:20px;
+    margin-top:25px;
+}
+
+.editor-card img{
+
+    width:100%;
+    max-height:400px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.controls{
+
+    margin-top:20px;
+    display:grid;
+    gap:15px;
+}
+
+.controls input{
+
+    width:100%;
+}
+
+.controls textarea{
+
+    width:100%;
+    min-height:80px;
+    border-radius:10px;
+    padding:10px;
+}
+
+.publish-btn{
+
+    padding:12px;
+    border:none;
+    background:#00bcd4;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
 
 .gallery{
-    background:#f1f1f1;
+
     padding:80px;
+    background:#f2f2f2;
+}
+
+.gallery-title{
+
+    text-align:center;
+    color:#111;
+    font-size:60px;
+    margin-bottom:50px;
 }
 
 .gallery-grid{
@@ -161,74 +239,80 @@ nav a{
     display:grid;
 
     grid-template-columns:
-    repeat(3,1fr);
+    repeat(auto-fit,minmax(300px,1fr));
 
-    gap:8px;
+    gap:15px;
 }
 
-.gallery-grid img{
+.photo-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+}
+
+.photo-card img{
 
     width:100%;
-    height:320px;
-
-    object-fit:cover;
-
-    filter:grayscale(100%);
-
-    transition:.4s;
+    display:block;
 
     cursor:pointer;
+
+    transition:.3s;
 }
 
-.gallery-grid img:hover{
+.photo-card img:hover{
 
-    filter:grayscale(0);
-
-    transform:scale(1.02);
+    transform:scale(1.03);
 }
 
-/* ---------------------- */
-/* SOCIAL */
-/* ---------------------- */
+.card-body{
+
+    padding:15px;
+}
+
+.card-desc{
+
+    color:#333;
+}
 
 .social{
-    background:black;
+
+    background:#000;
     text-align:center;
-    padding:120px 0;
+    padding:100px 0;
 }
 
 .social h2{
+
     font-size:60px;
-    margin-bottom:40px;
-    letter-spacing:6px;
+    margin-bottom:30px;
 }
 
 .social-links{
+
     display:flex;
     justify-content:center;
-    gap:40px;
+    gap:30px;
 }
 
 .social-links a{
+
     color:white;
     text-decoration:none;
-    font-size:22px;
 }
 
-/* ---------------------- */
-/* FOOTER */
-/* ---------------------- */
-
 footer{
+
     background:#050505;
     text-align:center;
     padding:30px;
-    color:#aaa;
 }
-
-/* ---------------------- */
-/* MODAL */
-/* ---------------------- */
 
 .modal{
 
@@ -240,13 +324,12 @@ footer{
     width:100%;
     height:100%;
 
-    background:
-    rgba(0,0,0,.95);
-
     display:none;
 
     justify-content:center;
     align-items:center;
+
+    background:rgba(0,0,0,.95);
 
     z-index:9999;
 }
@@ -256,36 +339,9 @@ footer{
 }
 
 .modal img{
+
     max-width:90%;
     max-height:90%;
-}
-
-/* ---------------------- */
-/* RESPONSIVE */
-/* ---------------------- */
-
-@media(max-width:900px){
-
-    .logo{
-        font-size:40px;
-    }
-
-    .hero-content{
-        left:40px;
-    }
-
-    .hero-content h1{
-        font-size:50px;
-    }
-
-    .gallery-grid{
-        grid-template-columns:1fr;
-    }
-
-    nav{
-        flex-direction:column;
-        gap:20px;
-    }
 }
 
 </style>
@@ -293,41 +349,36 @@ footer{
 
 <body>
 
-<!-- HERO -->
-
-<section class="hero">
-
 <nav>
-
-<div class="nav-left">
-">HOME</a>
-#about
-</div>
 
 <div class="logo">
 GLAM ME
 </div>
 
-<div class="nav-right">
-#
-#TOUR</a>
+<div class="menu">
+
+<a hrefBOUT</a>
+">UPLOAD</a>
+<a href="#gallery id="themeToggle">
+🌙
+</button>
+
 </div>
 
 </nav>
+
+<section class="hero">
 
 <div class="hero-content">
 
 <h1>NEW ALBUM OUT</h1>
 
-#gallery
-LISTEN NOW
-</a>
+<p>
+Create Beautiful Visual Stories
+</p>
 
-</div>
-
+<a href="#gallery
 </section>
-
-<!-- ABOUT -->
 
 <section class="about" id="about">
 
@@ -338,51 +389,57 @@ ABOUT
 <div class="about-content">
 
 <p>
-GLAM ME is a creative photography and visual storytelling portfolio.
-Showcase cinematic imagery, music-inspired visuals, artistic projects,
-and immersive gallery experiences through a bold monochrome style.
+Upload photographs, edit brightness,
+contrast and visual styling, add comments,
+and publish directly into your portfolio gallery.
 </p>
 
 </div>
 
 </section>
 
-<!-- GALLERY -->
+<section class="upload-section" id="upload">
+
+<h2>
+UPLOAD & EDIT PHOTOS
+</h2>
+
+<input
+type="file"
+id="imageUpload"
+accept="image/*"
+multiple>
+
+<div id="editorContainer"></div>
+
+</section>
 
 <section class="gallery" id="gallery">
 
-<div class="gallery-grid">
+<h2 class="gallery-title">
+PHOTO GALLERY
+</h2>
 
-1.jpg" alt="">
-<img src="photo2.jpg" alt="">
-" alt="">
-<img src="photo4.jpg" alt="">
-photo5.jpg" alt="">
-photo6.jpg">
-
+<div
+class="gallery-grid"
+id="galleryGrid">
 </div>
 
 </section>
-
-<!-- SOCIAL -->
 
 <section class="social">
 
-<h2>
-SOCIAL
-</h2>
+<h2>SOCIAL</h2>
 
 <div class="social-links">
 
+#INSTAGRAM</a>
 #
-#YOUTUBE</a>
-#
+#SPOTIFY</a>
 
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -390,37 +447,199 @@ SOCIAL
 
 </footer>
 
-<!-- IMAGE MODAL -->
-
 <div class="modal" id="modal">
 <img id="modalImg">
 </div>
 
 <script>
 
-const images =
-document.querySelectorAll('.gallery-grid img');
+document
+.getElementById("themeToggle")
+.addEventListener("click",()=>{
 
-const modal =
-document.getElementById('modal');
-
-const modalImg =
-document.getElementById('modalImg');
-
-images.forEach(img=>{
-
-    img.addEventListener('click',()=>{
-
-        modal.classList.add('active');
-
-        modalImg.src = img.src;
-    });
+document.body.classList.toggle(
+"light-mode"
+);
 
 });
 
-modal.addEventListener('click',()=>{
+const upload =
+document.getElementById("imageUpload");
 
-    modal.classList.remove('active');
+const editorContainer =
+document.getElementById("editorContainer");
+
+const gallery =
+document.getElementById("galleryGrid");
+
+upload.addEventListener(
+"change",
+function(event){
+
+[...event.target.files]
+.forEach(file=>{
+
+const reader =
+new FileReader();
+
+reader.onload =
+function(e){
+
+const imageSrc =
+e.target.result;
+
+const editor =
+document.createElement("div");
+
+editor.className =
+"editor-card";
+
+editor.innerHTML =
+`
+${imageSrc}
+
+<div class="controls">
+
+<label>Resize</label>
+<input type="range"
+class="size"
+min="150"
+max="800"
+value="400">
+
+<label>Brightness</label>
+<input type="range"
+class="brightness"
+min="50"
+max="200"
+value="100">
+
+<label>Contrast</label>
+<input type="range"
+class="contrast"
+min="50"
+max="200"
+value="100">
+
+<label>Grayscale</label>
+<input type="range"
+class="gray"
+min="0"
+max="100"
+value="0">
+
+<textarea
+class="caption"
+placeholder="Add comments">
+</textarea>
+
+<button
+class="publish-btn">
+Publish
+</button>
+
+</div>
+`;
+
+editorContainer.appendChild(editor);
+
+const img =
+editor.querySelector(".preview");
+
+const size =
+editor.querySelector(".size");
+
+const brightness =
+editor.querySelector(".brightness");
+
+const contrast =
+editor.querySelector(".contrast");
+
+const gray =
+editor.querySelector(".gray");
+
+function update(){
+
+img.style.width =
+size.value+"px";
+
+img.style.filter =
+`
+brightness(${brightness.value}%)
+contrast(${contrast.value}%)
+grayscale(${gray.value}%)
+`;
+
+}
+
+update();
+
+size.oninput = update;
+brightness.oninput = update;
+contrast.oninput = update;
+gray.oninput = update;
+
+editor
+.querySelector(".publish-btn")
+.onclick = ()=>{
+
+const card =
+document.createElement("div");
+
+card.className =
+"photo-card";
+
+card.innerHTML =
+`
+${imageSrc}
+
+<div class="card-body">
+
+<div class="card-desc">
+${editor.querySelector(".caption").value}
+</div>
+
+</div>
+`;
+
+gallery.appendChild(card);
+
+const galleryImage =
+card.querySelector("img");
+
+galleryImage.addEventListener(
+"click",
+()=>{
+
+document
+.getElementById("modal")
+.classList.add("active");
+
+document
+.getElementById("modalImg")
+.src=
+galleryImage.src;
+
+});
+};
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+});
+
+document
+.getElementById("modal")
+.addEventListener(
+"click",
+()=>{
+
+document
+.getElementById("modal")
+.classList.remove("active");
 
 });
 
