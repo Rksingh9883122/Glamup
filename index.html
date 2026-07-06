@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang=
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GLAM ME Portfolio</title>
 
-<link href="https://fonts.0&display=swap" rel="stylesheet">
+<link rel="preconnect"is.com
+<link rel="preconnect" href="https://fonts.gstaticmily=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -24,7 +25,7 @@ html{
 body{
     font-family:'Oswald',sans-serif;
     background:#000;
-    color:white;
+    color:#fff;
     transition:.3s;
 }
 
@@ -33,48 +34,31 @@ body.light-mode{
     color:#111;
 }
 
-body.light-mode .about,
-body.light-mode .social{
-    background:#ffffff;
-    color:#111;
-}
-
-body.light-mode nav{
-    background:rgba(255,255,255,.9);
-}
-
-body.light-mode nav a{
-    color:#111;
-}
-
 nav{
-
     position:fixed;
     top:0;
     width:100%;
-    padding:25px 60px;
+    padding:20px 40px;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(10px);
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    background:rgba(0,0,0,.6);
-
-    backdrop-filter:blur(15px);
-
     z-index:1000;
 }
 
 .logo{
-    font-size:40px;
-    letter-spacing:5px;
+    font-size:32px;
     font-weight:700;
+    letter-spacing:4px;
 }
 
 .menu{
     display:flex;
+    gap:20px;
     align-items:center;
-    gap:25px;
 }
 
 .menu a{
@@ -83,9 +67,9 @@ nav{
 }
 
 #themeToggle{
-    padding:10px 15px;
     border:none;
-    border-radius:30px;
+    border-radius:25px;
+    padding:10px 15px;
     cursor:pointer;
 }
 
@@ -95,8 +79,8 @@ nav{
 
     background:
     linear-gradient(
-    rgba(0,0,0,.4),
-    rgba(0,0,0,.4)
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
     ),
     url("hero.jpg");
 
@@ -110,127 +94,103 @@ nav{
     text-align:center;
 }
 
-.hero-content h1{
-
-    font-size:90px;
-    letter-spacing:8px;
+.hero h1{
+    font-size:6rem;
 }
 
-.hero-content p{
-
-    margin-top:20px;
-    font-size:24px;
+.hero p{
+    font-size:1.5rem;
+    margin:20px 0;
 }
 
 .hero-btn{
-    margin-top:30px;
 
     display:inline-block;
 
-    padding:18px 50px;
+    padding:15px 40px;
 
-    border:2px solid white;
-    border-radius:50px;
+    color:white;
 
     text-decoration:none;
-    color:white;
+
+    border:2px solid white;
+
+    border-radius:50px;
 }
 
-.about{
-
-    padding:100px 10%;
-    background:#111;
+.about,
+.upload-section{
+    padding:80px 10%;
 }
 
 .section-title{
-
     text-align:center;
-    margin-bottom:50px;
-    font-size:60px;
+    font-size:3rem;
+    margin-bottom:30px;
 }
 
-.about-content{
+.about{
+    background:#111;
+}
 
+.about p{
     text-align:center;
     max-width:900px;
     margin:auto;
-}
-
-.about-content p{
-
-    font-size:22px;
     line-height:1.8;
 }
 
 .upload-section{
-
-    padding:80px;
-    background:#151515;
+    background:#181818;
 }
 
-.upload-section h2{
-
-    font-size:50px;
-    margin-bottom:25px;
+input[type=file]{
+    margin-bottom:30px;
 }
 
 .editor-card{
 
-    background:#202020;
+    background:#222;
+
     padding:20px;
+
     border-radius:20px;
-    margin-top:25px;
+
+    margin-top:20px;
 }
 
 .editor-card img{
-
-    width:100%;
-    max-height:400px;
-    object-fit:cover;
+    max-width:100%;
     border-radius:15px;
 }
 
 .controls{
-
-    margin-top:20px;
     display:grid;
-    gap:15px;
-}
-
-.controls input{
-
-    width:100%;
+    gap:12px;
+    margin-top:15px;
 }
 
 .controls textarea{
-
-    width:100%;
     min-height:80px;
-    border-radius:10px;
     padding:10px;
 }
 
 .publish-btn{
-
-    padding:12px;
-    border:none;
     background:#00bcd4;
     color:white;
-    border-radius:10px;
+    border:none;
+    padding:12px;
     cursor:pointer;
 }
 
 .gallery{
-
-    padding:80px;
     background:#f2f2f2;
+    padding:80px;
 }
 
 .gallery-title{
-
-    text-align:center;
     color:#111;
-    font-size:60px;
+    text-align:center;
     margin-bottom:50px;
 }
 
@@ -241,7 +201,7 @@ nav{
     grid-template-columns:
     repeat(auto-fit,minmax(300px,1fr));
 
-    gap:15px;
+    gap:20px;
 }
 
 .photo-card{
@@ -253,65 +213,43 @@ nav{
     overflow:hidden;
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,.15);
+    0 8px 20px rgba(0,0,0,.15);
 }
 
 .photo-card img{
-
     width:100%;
     display:block;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.photo-card img:hover{
-
-    transform:scale(1.03);
 }
 
 .card-body{
-
-    padding:15px;
+    padding:12px;
 }
 
 .card-desc{
-
     color:#333;
 }
 
 .social{
-
     background:#000;
     text-align:center;
-    padding:100px 0;
-}
-
-.social h2{
-
-    font-size:60px;
-    margin-bottom:30px;
+    padding:80px 0;
 }
 
 .social-links{
-
     display:flex;
     justify-content:center;
     gap:30px;
 }
 
 .social-links a{
-
     color:white;
     text-decoration:none;
 }
 
 footer{
-
-    background:#050505;
     text-align:center;
-    padding:30px;
+    padding:25px;
+    background:#050505;
 }
 
 .modal{
@@ -339,12 +277,12 @@ footer{
 }
 
 .modal img{
-
     max-width:90%;
     max-height:90%;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -357,9 +295,11 @@ GLAM ME
 
 <div class="menu">
 
-<a hrefBOUT</a>
-">UPLOAD</a>
-<a href="#gallery id="themeToggle">
+about">ABOUT</a>
+<apload
+<aallery
+
+<button id="themeToggle">
 🌙
 </button>
 
@@ -369,15 +309,18 @@ GLAM ME
 
 <section class="hero">
 
-<div class="hero-content">
+<div>
 
-<h1>NEW ALBUM OUT</h1>
+<h1>GLAM ME</h1>
 
-<p>
-Create Beautiful Visual Stories
-</p>
+<p>Create Beautiful Visual Stories</p>
 
-<a href="#gallery
+#gallery
+VIEW GALLERY
+</a>
+
+</div>
+
 </section>
 
 <section class="about" id="about">
@@ -386,22 +329,17 @@ Create Beautiful Visual Stories
 ABOUT
 </h2>
 
-<div class="about-content">
-
 <p>
-Upload photographs, edit brightness,
-contrast and visual styling, add comments,
-and publish directly into your portfolio gallery.
+Upload photographs, adjust brightness, contrast and grayscale,
+add comments and publish a beautiful portfolio gallery.
 </p>
-
-</div>
 
 </section>
 
 <section class="upload-section" id="upload">
 
-<h2>
-UPLOAD & EDIT PHOTOS
+<h2 class="section-title">
+UPLOAD & EDIT
 </h2>
 
 <input
@@ -434,8 +372,8 @@ id="galleryGrid">
 <div class="social-links">
 
 #INSTAGRAM</a>
-#
-#SPOTIFY</a>
+#YOUTUBE</a>
+#>
 
 </div>
 
@@ -463,78 +401,52 @@ document.body.classList.toggle(
 
 });
 
-const upload =
+const upload=
 document.getElementById("imageUpload");
 
-const editorContainer =
+const editorContainer=
 document.getElementById("editorContainer");
 
-const gallery =
+const gallery=
 document.getElementById("galleryGrid");
 
-upload.addEventListener(
-"change",
-function(event){
+upload.addEventListener("change",(event)=>{
 
-[...event.target.files]
-.forEach(file=>{
+[...event.target.files].forEach(file=>{
 
-const reader =
+const reader=
 new FileReader();
 
-reader.onload =
-function(e){
+reader.onload=(e)=>{
 
-const imageSrc =
-e.target.result;
+const imageSrc=e.target.result;
 
-const editor =
+const editor=
 document.createElement("div");
 
-editor.className =
-"editor-card";
+editor.className="editor-card";
 
-editor.innerHTML =
-`
+editor.innerHTML=`
+
 ${imageSrc}
 
 <div class="controls">
 
 <label>Resize</label>
-<input type="range"
-class="size"
-min="150"
-max="800"
-value="400">
+<input type="range" class="size" min="150" max="800" value="400">
 
 <label>Brightness</label>
-<input type="range"
-class="brightness"
-min="50"
-max="200"
-value="100">
+<input type="range" class="brightness" min="50" max="200" value="100">
 
 <label>Contrast</label>
-<input type="range"
-class="contrast"
-min="50"
-max="200"
-value="100">
+<input type="range" class="contrast" min="50" max="200" value="100">
 
 <label>Grayscale</label>
-<input type="range"
-class="gray"
-min="0"
-max="100"
-value="0">
+<input type="range" class="gray" min="0" max="100" value="0">
 
-<textarea
-class="caption"
-placeholder="Add comments">
-</textarea>
+<textarea class="caption" placeholder="Add comments"></textarea>
 
-<button
-class="publish-btn">
+<button class="publish-btn">
 Publish
 </button>
 
@@ -543,60 +455,25 @@ Publish
 
 editorContainer.appendChild(editor);
 
-const img =
-editor.querySelector(".preview");
+editor.querySelector(".publish-btn")
+.onclick=()=>{
 
-const size =
-editor.querySelector(".size");
+const caption=
+editor.querySelector(".caption").value;
 
-const brightness =
-editor.querySelector(".brightness");
-
-const contrast =
-editor.querySelector(".contrast");
-
-const gray =
-editor.querySelector(".gray");
-
-function update(){
-
-img.style.width =
-size.value+"px";
-
-img.style.filter =
-`
-brightness(${brightness.value}%)
-contrast(${contrast.value}%)
-grayscale(${gray.value}%)
-`;
-
-}
-
-update();
-
-size.oninput = update;
-brightness.oninput = update;
-contrast.oninput = update;
-gray.oninput = update;
-
-editor
-.querySelector(".publish-btn")
-.onclick = ()=>{
-
-const card =
+const card=
 document.createElement("div");
 
-card.className =
-"photo-card";
+card.className="photo-card";
 
-card.innerHTML =
-`
+card.innerHTML=`
+
 ${imageSrc}
 
 <div class="card-body">
 
 <div class="card-desc">
-${editor.querySelector(".caption").value}
+${caption}
 </div>
 
 </div>
@@ -604,12 +481,8 @@ ${editor.querySelector(".caption").value}
 
 gallery.appendChild(card);
 
-const galleryImage =
-card.querySelector("img");
-
-galleryImage.addEventListener(
-"click",
-()=>{
+card.querySelector("img")
+.addEventListener("click",()=>{
 
 document
 .getElementById("modal")
@@ -617,10 +490,10 @@ document
 
 document
 .getElementById("modalImg")
-.src=
-galleryImage.src;
+.src=imageSrc;
 
 });
+
 };
 
 };
@@ -633,9 +506,7 @@ reader.readAsDataURL(file);
 
 document
 .getElementById("modal")
-.addEventListener(
-"click",
-()=>{
+.addEventListener("click",()=>{
 
 document
 .getElementById("modal")
